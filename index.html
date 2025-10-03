@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ejemplo</title>
+
+    <style>
+      * {
+        margin:0; 
+        padding:0; 
+        box-sizing: border-box;
+      }
+      div#show {
+        width: 800px;
+        margin: 0 auto;
+        background: springgreen;
+        overflow: auto;
+      }
+      div#show > div {
+        border: 2px solid black;
+        width: calc(50% - 2%);
+        padding: 15px;
+        margin: 1%;
+        float: left;
+        background: antiquewhite;
+      }
+      div#show div.destacado {
+        border: 5px pink;
+        width: calc(100% - 2%);
+        padding: 10px;
+        margin: 1%;
+        float: none;
+        background: black;
+        color: white;
+      }
+      div#show div.fin {
+        width: 100%;
+        clear: both;
+        background: mediumpurple;
+        color: white;
+        padding: 10px;
+        text-align: center;
+      }
+      div#show img {
+        width: 70%;
+        height: auto;
+        display: block;
+        margin: 10px 0;
+      }
+      div#show h1 {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+      }
+    </style>
+      
+  </head>
+  <body>
+
+    <div id="show"></div>
+
+    <script>
+      const trabajos = [
+        {
+          title: "Zebra 16mm",
+          category: "destacado",
+          photo: "zebra.jpg",
+          description: "Analog film portrait of table tennis event in the club 'zebra', June 2025, Analog film course"
+        },
+        {
+          title: "Otro trabajo",
+          category: "Photography",
+          photo: "drag.jpg",
+          description: "Music video of drag artists, June 2025, short cuts"
+        },
+        {
+          title: "Otro trabajo",
+          category: "Photography",
+          photo: "zebra.jpg",
+          description: "Another description here"
+        },
+        {
+          title: "Otro trabajo",
+          category: "Photography",
+          photo: "drag.jpg",
+          description: "Another description here"
+        },
+        {
+          title: "Otro trabajo",
+          category: "Photography",
+          photo: "zebra.jpg",
+          description: "Another description here"
+        }
+      ];
+
+      const parrafos = document.querySelector("#show");
+
+      trabajos.forEach((v) => {
+        parrafos.innerHTML += `
+          <div class="${v.category}">
+            <h1>${v.title}</h1>
+            <img src="${v.photo}">
+            <p>${v.description}</p>
+          </div>`;
+      });
+
+      parrafos.innerHTML += `<div class="fin"> FIN! </div>`;
+    </script>
+  </body>
+</html>
